@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "the-one-music-player",
-  "permissions": ["storage", "identity", "contextMenus"],
+  "permissions": ["storage", "identity", "contextMenus", "offscreen"],
   "host_permissions": ["https://www.googleapis.com/*"],
   "version": "0.1.0", 
   "background": {

@@ -1,0 +1,1 @@
+console.log("offscreen document is live")
