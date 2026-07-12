@@ -113,3 +113,27 @@ const canvas = shadow.getElementById("particles");
 const ctx = canvas.getContext("2d");
 canvas.width = 320;
 canvas.height= 260;
+
+let particles = Array.from({  length: 20  }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.8 + 0.6,
+    speed: Math.random() * 0.35 + 0.12
+}));
+
+function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const p of particles) {
+        p.y -= p.speed;
+        if (p.y < -5) p.y = canvas.height + 5;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(124, 255, 196, 0.5)";
+        ctx.shadowColor = "rgba(124, 255, 196, 0.9)";
+        ctx.shadowBlur = 4;
+        ctx.fill();
+    }
+    requestAnimationFrame(drawParticles);
+}
+
+drawParticles();
