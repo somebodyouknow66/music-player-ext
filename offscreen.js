@@ -4,7 +4,7 @@ const TEST_VIDEO_ID = "M7lc1UVf-VE";
 
 const iframe = document.createElement("iframe");
 iframe.width = "300";
-iframe.height = "200";
-iframe.src = `https://www.youtube.com/embed/${TEST_VIDEO_ID}?enablejsapi=1`;
+iframe.height = "166";
+iframe.src = "https://w.soundcloud.com/player/?url=" + encodeURIComponent("https://soundcloud.com/forss/flickermood");
 document.getElementById("player").appendChild(iframe);
 
