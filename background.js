@@ -12,31 +12,48 @@ async function ensureRefererRule(){
             {
                 id: RULE_ID,
                 priority: 1,
-                action: {
-                    type: 'modifyHeaders', 
-                    requestHeaders: [
-                        {  header: 'Referer', operation: 'set', value: 'https://www.youtube.com/' }
-                    ]
-                },
                 condition: {
-                    urlFilter: '||youtube.com',
+                    initiatorDomains: [chrome.runtime.id],
+                    requestDomains: ['www.youtube.com'],
                     resourceTypes: ['sub_frame']
+                },
+                action: {
+                    type: 'modifyHeaders',
+                    requestHeaders: [
+                        {header: 'referer', operation: 'set', value: chrome.runtime.id}
+                    ]
                 }
             }
         ]
     });
 }
 
+let creatingOffscreenDocument;
+
 async function ensureOffscreenDocument() {
-    const existing = await chrome.offscreen.hasDocument();
-    if (existing) return;
+    const existingContexts = await chrome.runtime.getContexts({
+        contextTypes: ['OFFSCREEN_DOCUMENT']
+    });
+
+    if (existingContexts.length > 0) return;
+
+    if (creatingOffscreenDocument) {
+        await creatingOffscreenDocument;
+        return;
+    }
 
 
-await chrome.offscreen.createDocument({
+creatingOffscreenDocument = chrome.offscreen.createDocument({
     url: 'offscreen.html',
     reasons: ['AUDIO_PLAYBACK'], 
     justification: 'so, the audio could play in the background'
 });
+
+try {
+    await creatingOffscreenDocument;
+} finally {
+    creatingOffscreenDocument = null;
+}
 
 }
 

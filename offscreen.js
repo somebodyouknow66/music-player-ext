@@ -5,5 +5,6 @@ const TEST_VIDEO_ID = "M7lc1UVf-VE";
 const iframe = document.createElement("iframe");
 iframe.width = "300";
 iframe.height = "200";
-iframe.src = `https://www.youtube.com/embed/${TEST_VIDEO_ID}`;
+iframe.src = `https://www.youtube.com/embed/${TEST_VIDEO_ID}?enablejsapi=1`;
 document.getElementById("player").appendChild(iframe);
+
