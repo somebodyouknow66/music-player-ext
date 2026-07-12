@@ -109,3 +109,7 @@ shadow.innerHTML = `
 
 // particles backdrop (i am gonna make it react to the music, stop me if you can)
 
+const canvas = shadow.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = 320;
+canvas.height= 260;
