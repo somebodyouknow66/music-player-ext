@@ -1,16 +1,11 @@
 console.log("player screen script injected");
 
-const host = document.createElement("div");
-host.id = "screen-host";
-host.style.positon = "fixed";
-host.style.botttom = "20px";
-host.style.right = "20px";
-host.style.zIndex = "324233434"
-document.body.appendChild(host);
+document.body.style.margin = "0";
+document.body.style.background = "transparent";
 
-const shadow = host.attachShadow({ mode: "open" });
+const app = document.getElementById("app");
 
-shadow.innerHTML = `
+app.innerHTML = `
 
 <style>
   * {
