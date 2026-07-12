@@ -1,5 +1,7 @@
 console.log("offscreen document is live");
 
+let iframe = null;
+
 function ensurePlayer(trackUrl, autoplay) {
     const src = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(trackUrl) + "&auto_play=" + (autoplay ? "true" : "false");
     if (!iframe) {
@@ -27,7 +29,7 @@ chrome.runtime.onMessage.addListener((msg) => {
         ensurePlayer(msg.trackUrl, true);
         break;
         case "PLAY": 
-        sendtoWidget("play");
+        sendToWidget("play");
         break;
         case "PAUSE": 
         sendToWidget("pause");
@@ -36,6 +38,6 @@ chrome.runtime.onMessage.addListener((msg) => {
 });
 
 window.addEventListener("message", (e) => {
-    if (e.orgin !== "https://w.soundcloud.com") return;
+    if (e.origin !== "https://w.soundcloud.com") return;
     console.log("from soundcloud:", e.data)
 })
