@@ -16,9 +16,9 @@ app.innerHTML = `
   }
 
   .panel {
-    width: 320px;
-    height: 260px;
-    border-radius: 20px;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
     background: linear-gradient(180deg, #06120c 0%, #030a06 100%);
     border: 1px solid rgba(120, 255, 190, 0.25); 
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(20, 255, 140, 0.12);
