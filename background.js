@@ -41,3 +41,34 @@ chrome.runtime.onStartup.addListener(() => {
     ensureOffscreenDocument();
 });
 
+
+let playerWindowId = null;
+
+chrome.action.onClicked.addListener(async () => {
+    if (playerWindowId !== null) {
+        try {
+            await chrome.windows.remove(playerWindowId);
+        } catch (e) {
+            // window has been closed by the user
+        }
+        
+        playerWindowId = null;
+        return;
+    }
+
+    const win = await chrome.windows.create({
+        url: chrome.runtime.getURL("player.html"), 
+        type: "popup",
+        width: 340,
+        height: 300
+    });
+    
+    playerWindowId = win.id;
+
+    chrome.windows.onRemoved.addListener(function handler(closedId){
+        if (closedId === playerWindowId) {
+            playerWindowId = null;
+            chrome.windows.onRemoved.removeListener(handler);
+        }
+    });
+});
