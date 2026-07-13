@@ -6,6 +6,7 @@ console.log('player is running');
 
 let creatingOffscreenDocument;
 
+
 async function ensureOffscreenDocument() {
     const existingContexts = await chrome.runtime.getContexts({
         contextTypes: ['OFFSCREEN_DOCUMENT']
@@ -44,6 +45,8 @@ chrome.runtime.onStartup.addListener(() => {
 
 let playerWindowId = null;
 
+let currentState = {trackUrl: null, isPlaying: false, title: "Nothing is playing"}
+
 chrome.action.onClicked.addListener(async () => {
     if (playerWindowId !== null) {
         try {
@@ -55,20 +58,36 @@ chrome.action.onClicked.addListener(async () => {
         playerWindowId = null;
         return;
     }
-
+    
     const win = await chrome.windows.create({
         url: chrome.runtime.getURL("player.html"), 
         type: "popup",
         width: 340,
         height: 300
+        
     });
     
     playerWindowId = win.id;
-
+    
+    await ensureOffscreenDocument();
+    currentState = {  trackUrl: "https://soundcloud.com/forss/flickermood", title:"Flickermood", isPlaying: true };
+    chrome.runtime.sendMessage({  target: "offscreen", type: "LOAD_AND_PLAY", trackUrl: currentState.trackUrl }) 
+   
     chrome.windows.onRemoved.addListener(function handler(closedId){
         if (closedId === playerWindowId) {
             playerWindowId = null;
             chrome.windows.onRemoved.removeListener(handler);
         }
     });
+});
+
+chrome.runtime.onMessage.addListener((msg) => {
+    if (!msg || msg.target === "offscreen") return;
+
+    if (msg.type === "TOGGLE_PLAY") {
+        currentState.isPlaying = !currentState.isPlaying;
+        chrome.runtime.sendMessage({ target: "offscreen", type: currentState.isPlaying ? "PLAY" : "PAUSE" });
+        chrome.runtime.sendMessage({type: "STATE_UPDATE", state: currentState});
+
+    }
 });
