@@ -5,20 +5,33 @@
     margin: 0;
     padding: 0;
   }
-
 </style>
 
 <div id="screen">
-    <div id="coverImage"></div>
-    <div id="search"></div>
-    <div id="playerBody">
-        <div id="info">
-            <h4 id="title">Sky Full of Stars</h4>
-            <h3 id="artist">Coldplay</h3>
-        </div>
-        <table id="player"></table>
-
+  <div id="coverImage"></div>
+  <div id="search"></div>
+  <div class="playerBody">
+    <div id="info">
+      <h4 id="title">Sky Full of Stars</h4>
+      <h3 id="artist">Coldplay</h3>
     </div>
-
-
+    <div class="controls">
+      <button id="backward" class="control-btn">
+        <svg
+          width="28"
+          height="28"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 10l-4 4m0 0l4 4m-4-4V6"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
 </div>
