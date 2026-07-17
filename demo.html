@@ -1,10 +1,41 @@
 <style>
-  * {
-    box-sizing: border-box;
-    font-family: sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans, sans-serif'
+  } 
+
+  #title {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: black; /* color is temporary */
   }
+
+#artist {
+    margin: 0;
+    padding: 0; 
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 400;
+    color: black; /* color is temporary */
+
+}
+
+#titlePlaying {
+    margin: 0 0 5px 29px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    color: black; /* color is temporary */
+}
+  
 </style>
 
 <div id="screen">
@@ -12,8 +43,8 @@
   <div id="search"></div>
   <div class="playerBody">
     <div id="info">
-      <h4 id="title">Sky Full of Stars</h4>
-      <h3 id="artist">Coldplay</h3>
+      <p id="title">Sky Full of Stars</h4>
+      <p id="artist">Coldplay</h3>
     </div>
     <div class="controls">
       <button id="backward" class="control-btn">
