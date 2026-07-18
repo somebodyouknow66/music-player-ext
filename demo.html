@@ -1,5 +1,6 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
 
 html, body {
     margin: 0;
@@ -11,10 +12,12 @@ html, body {
   position: relative;
   width: 280px;
   height: 280px;
-  background: #fff;
+  background: #A9D3FF;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+  top: 150px;
+  left: 250px;
+
 }
 
 #search {
@@ -63,7 +66,8 @@ html, body {
 #artist {
   margin: 0;
   padding: 0; 
-  font-size: 18px;
+  font-size: 16px;
+  font-family: 'Chelsea Market', sans-serif;
   line-height: 22px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.493); /* color is temporary */
@@ -100,7 +104,7 @@ html, body {
 }
 
 .controls button:hover {
-  color: #A9D3FF;
+  color: #57a4f7;
 }
 
 #backward svg,
@@ -113,17 +117,34 @@ html, body {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: #A9D3FF;
-  color: #fff;
+  background: #111111;
+  color: #A9D3FF;
+    transition: .5s;
+
 }
 
 #play:hover {
   color: #fff;
-  transform: scale(1.04);
+
 }
 
 #play svg {
-  width: 26px
+  width: 26px;
+  height: 26px;
+  
+}
+
+
+#pauseIcon {
+  display: none;
+}
+
+#play.is-playing #playIcon {
+  display: none;
+}
+
+#play.is-playing #pauseIcon {
+  display: block;
 }
 
 </style>
@@ -148,9 +169,9 @@ html, body {
   </div>
   <div class="playerBody">
     <div id="info">
-      <p id="title">Sky Full of Stars</h4>
-      <p id="artist">Coldplay</h3>
-    </div>
+      <p id="title">Sky Full of Stars</p>
+      <p id="artist">Coldplay</p>
+
 
 
   </div>
@@ -192,7 +213,7 @@ html, body {
         </svg>
       </button>
 
-      <button id="forward" class="controlbtn">
+      <button id="forward" class="control-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -205,6 +226,5 @@ html, body {
         </svg>
       </button>
     </div>
-
     </div>
 </div>
