@@ -2,7 +2,7 @@ console.log("player screen script injected");
 
 document.body.style.margin = "0";
 document.body.style.background = "transparent";
-
+document.body.style.overflow = "hidden";
 const app = document.getElementById("app");
 
 app.innerHTML = `
@@ -14,17 +14,14 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "Crafty Girls", cursive;
+    overflow: hidden;
   } 
 
 #screen {
   position: relative;
   width: 280px;
   background: #A9D3FF;
-  border-radius: 6px;
   overflow: hidden;
-  top: 150px;
-  left: 250px;
-
 }
 
 #search {
@@ -269,3 +266,20 @@ html, body {
 
 
 `
+
+const playBtn = document.getElementById('play');
+const searchBtn = document.getElementById('search');
+const backBtn = document.getElementById('bacward');
+const forwardBtn = document.getElementById('forward');
+
+playBtn.addEventListener('click', () => {
+    playBtn.classList.toggle('is-playing');
+});
+
+backBtn.addEventListener('click', () => {
+    console.log('backward clicked - no playlist found');
+})
+
+forwardBtn.addEventListener('click', () => {
+    console.log('forward clicked - no playlist found')
+})
