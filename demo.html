@@ -78,7 +78,44 @@ html, body {
   background: url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnN4OHJsZWlodWo3Y2o1cGNja2Y0cTA1ZXY4dXg0ZjNlYnl0bXZ4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pdIK8r02H35TZDHDF0/giphy.gif") center/cover no-repeat;
 }
 
+.controls,.other-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 22px;
+}
 
+.controls button , .other-controls button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s linear, transform 0.15s linear;
+}
+
+.controls button:hover, .other-controls button:hover {
+  color: #A9D3FF;
+}
+
+#backward svg,
+#forward svg {
+  width: 26px;
+  height: 26px;
+}
+
+#play {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #A9D3FF;
+  color: #fff;
+}
 
 </style>
 
@@ -114,8 +151,8 @@ html, body {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          width="32"
-          height="32"
+         width="24"
+          height="24"
         >
           <rect x="5" y="5" width="2" height="14" />
           <path d="M18 5L8 12l10 7z" />
@@ -128,8 +165,8 @@ html, body {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          width="32"
-          height="32"
+          width="24"
+          height="24"
         >
           <rect x="6" y="5" width="4" height="14" rx="1" />
           <rect x="14" y="5" width="4" height="14" rx="1" />
@@ -139,8 +176,8 @@ html, body {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          width="32"
-          height="32"
+        width="24"
+          height="24"
         >
           <path d="M8 5v14l11-7z" />
         </svg>
@@ -151,8 +188,8 @@ html, body {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          width="32"
-          height="32"
+          width="24"
+          height="24"
         >
           <rect x="17" y="5" width="2" height="14" />
           <path d="M6 5l10 7-10 7z" />
@@ -170,8 +207,8 @@ html, body {
           stroke-width="1.8"
           stroke-linecap="round"
           stroke-linejoin="round"
-          width="32"
-          height="32"
+          width="24"
+          height="24"
         >
           <path
             d="M12 20.5
@@ -193,8 +230,8 @@ html, body {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          width="32"
-          height="32"
+         width="24"
+          height="24"
         >
           <path d="M16 3h5v5" />
           <path d="M4 20l16-16" />
@@ -212,8 +249,8 @@ html, body {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          width="32"
-          height="32"
+         width="24"
+          height="24"
         >
           <path d="M17 2l4 4-4 4" />
           <path d="M3 11V9a3 3 0 013-3h15" />
@@ -226,8 +263,8 @@ html, body {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          width="32"
-          height="32"
+        width="24"
+          height="24"
         >
           <circle cx="12" cy="5" r="2" />
           <circle cx="12" cy="12" r="2" />
