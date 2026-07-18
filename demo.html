@@ -78,7 +78,7 @@ html, body {
   background: url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnN4OHJsZWlodWo3Y2o1cGNja2Y0cTA1ZXY4dXg0ZjNlYnl0bXZ4dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pdIK8r02H35TZDHDF0/giphy.gif") center/cover no-repeat;
 }
 
-.controls,.other-controls{
+.controls{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@ html, body {
   margin-bottom: 22px;
 }
 
-.controls button , .other-controls button {
+.controls button {
   background: none;
   border: none;
   padding: 0;
@@ -99,7 +99,7 @@ html, body {
   transition: color 0.15s linear, transform 0.15s linear;
 }
 
-.controls button:hover, .other-controls button:hover {
+.controls button:hover {
   color: #A9D3FF;
 }
 
@@ -115,6 +115,15 @@ html, body {
   border-radius: 50%;
   background: #A9D3FF;
   color: #fff;
+}
+
+#play:hover {
+  color: #fff;
+  transform: scale(1.04);
+}
+
+#play svg {
+  width: 26px
 }
 
 </style>
@@ -197,79 +206,5 @@ html, body {
       </button>
     </div>
 
-    <div class="other-controls">
-      <button id="like">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          width="24"
-          height="24"
-        >
-          <path
-            d="M12 20.5
-           3.8 12.8
-           A4.8 4.8 0 0 1 10.6 6
-           L12 7.4
-           L13.4 6
-           A4.8 4.8 0 0 1 20.2 12.8
-           Z"
-          />
-        </svg>
-      </button>
-      <button id="shuffle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-         width="24"
-          height="24"
-        >
-          <path d="M16 3h5v5" />
-          <path d="M4 20l16-16" />
-          <path d="M15 15l5 5" />
-          <path d="M20 15v5h-5" />
-          <path d="M4 4l5 5" />
-        </svg>
-      </button>
-      <button id="repeat">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-         width="24"
-          height="24"
-        >
-          <path d="M17 2l4 4-4 4" />
-          <path d="M3 11V9a3 3 0 013-3h15" />
-          <path d="M7 22l-4-4 4-4" />
-          <path d="M21 13v2a3 3 0 01-3 3H3" />
-        </svg>
-      </button>
-      <button id="options">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        width="24"
-          height="24"
-        >
-          <circle cx="12" cy="5" r="2" />
-          <circle cx="12" cy="12" r="2" />
-          <circle cx="12" cy="19" r="2" />
-        </svg>
-      </button>
     </div>
 </div>
