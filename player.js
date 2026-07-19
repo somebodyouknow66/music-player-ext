@@ -269,11 +269,12 @@ html, body {
 
 const playBtn = document.getElementById('play');
 const searchBtn = document.getElementById('search');
-const backBtn = document.getElementById('bacward');
+const backBtn = document.getElementById('backward');
 const forwardBtn = document.getElementById('forward');
 
 playBtn.addEventListener('click', () => {
     playBtn.classList.toggle('is-playing');
+    chrome.runtime.sendMessage({  type: 'TOGGLE_PLAY'  });
 });
 
 backBtn.addEventListener('click', () => {

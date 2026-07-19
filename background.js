@@ -91,4 +91,8 @@ chrome.runtime.onMessage.addListener((msg) => {
         chrome.runtime.sendMessage({type: "STATE_UPDATE", state: currentState});
 
     }
+
+    if (msg.type === "GET_STATE") {
+        sendResponse(currentState);
+    }
 });
